@@ -1,0 +1,38 @@
+.titulo {
+    color: #fefefe;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+}
+
+.generos.contenedor {
+    display: flex;
+}
+
+h3 {
+    margin: 0;
+    margin-bottom: 4px;
+}
+
+.generos-card {
+    background-color: rgba(20, 20, 159, 0.476);
+    padding: 8px 12px;
+    border-radius: 6px;
+}
+
+.generos-card:hover {
+    cursor: pointer;
+    background-color:cadetblue;
+    transition: all 0.15s ease-in-out;
+}
+
+.container {
+    margin-top: 30px;
+    display: flex;
+    color: #fefefe;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}

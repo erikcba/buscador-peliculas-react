@@ -65,8 +65,14 @@ export const Home = () => {
         {peliculas.map((pelicula) => (
           <div key={pelicula.id} className='movie-card'>
             <img src={`https://image.tmdb.org/t/p/w500${pelicula.poster_path}`} alt="" />
-            <h3>{pelicula.title} </h3>
-            <p className='ellipsis'>{pelicula.overview} </p>
+            
+            <div className='movie-card-info'>
+              <div className='titulo-pelicula'>
+                <h3 >{pelicula.title} </h3>
+              </div>
+
+              <button> Ver más </button>
+            </div>
           </div>
         ))}
       </div>

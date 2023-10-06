@@ -56,23 +56,33 @@ export const BotonesCategorias = ({ generos }) => {
 
             </div>
 
-            <div>
-                {
-                    peliculasPorGenero.map((pelicula) => (
-                        <div className='container'>
 
-                            <div key={pelicula.id} className='movie-card'>
-                                <img src={`https://image.tmdb.org/t/p/w500${pelicula.poster_path}`} alt="" />
-                                <h3>{pelicula.title} </h3>
-                                <p className='ellipsis'>{pelicula.overview} </p>
+
+
+            <div className='peliculas-container container '>
+
+                {peliculasPorGenero.map((pelicula) => (
+                    <div key={pelicula.id} className='movie-card'>
+
+                        <div className='movie-card-img'>
+                            <img src={`https://image.tmdb.org/t/p/w500${pelicula.poster_path}`} alt="" />
+                        </div>
+
+                        <div className='movie-card-info'>
+                            <div className='titulo-pelicula'>
+                                <h3 >{pelicula.title} </h3>
                             </div>
 
+                            <button> Ver más </button>
                         </div>
-                    ))
 
-
+                    </div>
+                ))
                 }
+
             </div>
+
+
         </>
     )
 }

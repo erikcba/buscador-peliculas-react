@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import '../styles/categorias.css'
+import { ListaPeliculas } from './ListaPeliculas';
 
 export const BotonesCategorias = ({ generos }) => {
 
@@ -13,25 +14,49 @@ export const BotonesCategorias = ({ generos }) => {
 
 
     const [peliculasPorGenero, setPeliculasPorGenero] = useState([]);
-
-
     const [generoElegido, setGeneroElegido] = useState(null)
 
-    const handleGenero = async (genero) => {
-        setGeneroElegido(genero.id);
+    const [pagina, setPagina] = useState(1)
+
+
+    const fetchData = async () => {
+
         try {
-            const res = await fetch(`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=es-ES&page=20&with_genres=${genero.id}`, options)
+            const res = await fetch(`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=es-ES&page=${pagina}&with_genres=${generoElegido}`, options)
             const data = await res.json()
             setPeliculasPorGenero(data.results)
         } catch (error) {
             console.error(error)
         }
+
     }
 
-    useEffect(() => {
-        console.log(generoElegido)
+    const handleGenero = async (genero) => {
+        setGeneroElegido(genero.id)
+        setPagina(1)
+        fetchData()
+    }
 
-    }, [generoElegido])
+    const handlePaginaSig = () => {
+        setPagina(pagina + 1)
+        fetchData();
+    }
+
+    const handlePaginaAnterior = () => {
+        if (pagina > 1) {
+            setPagina(pagina - 1)
+            fetchData()
+        }
+    }
+
+
+    useEffect(() => {
+        console.log(pagina)
+
+    }, [generoElegido, pagina])
+
+
+
 
 
     return (
@@ -52,35 +77,35 @@ export const BotonesCategorias = ({ generos }) => {
                         (
                             <p>Cargando géneros...</p>
                         )
+
                 }
 
             </div>
 
 
+            <ListaPeliculas peliculasPorGenero={peliculasPorGenero}></ListaPeliculas>
 
 
-            <div className='peliculas-container container '>
 
-                {peliculasPorGenero.map((pelicula) => (
-                    <div key={pelicula.id} className='movie-card'>
+            <div className='container'>
+                {
+                    pagina > 1 ?
+                        <button className='btn btn-primary' onClick={handlePaginaAnterior}>Anterior</button>
+                        :
+                        <button className='btn btn-primary' disabled>Anterior</button>
+                }
 
-                        <div className='movie-card-img'>
-                            <img src={`https://image.tmdb.org/t/p/w500${pelicula.poster_path}`} alt="" />
-                        </div>
-
-                        <div className='movie-card-info'>
-                            <div className='titulo-pelicula'>
-                                <h3 >{pelicula.title} </h3>
-                            </div>
-
-                            <button> Ver más </button>
-                        </div>
-
-                    </div>
-                ))
+                <p>{pagina} </p>
+                {
+                    generoElegido ?
+                        <button className='btn btn-primary' onClick={handlePaginaSig} >Siguiente</button>
+                        :
+                        <button className='btn btn-primary' disabled >Siguiente</button>
                 }
 
             </div>
+
+
 
 
         </>

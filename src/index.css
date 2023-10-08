@@ -22,6 +22,7 @@ body {
 
 .container {
     margin-top: 30px;
+    margin-bottom: 20px;
     display: flex;
     color: #fefefe;
     flex-wrap: wrap;

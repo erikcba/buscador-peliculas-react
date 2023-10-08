@@ -71,7 +71,7 @@ export const Home = () => {
                 <h3 >{pelicula.title} </h3>
               </div>
 
-              <button> Ver más </button>
+              <button className='btn btn-primary'> Ver más </button>
             </div>
           </div>
         ))}

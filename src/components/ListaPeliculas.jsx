@@ -1,6 +1,20 @@
-import React from 'react'
+import React, { createContext, useState } from 'react'
+import { Link } from 'react-router-dom'
+import { PeliculaDetalles } from './PeliculaDetalles'
 
-export const ListaPeliculas = ({peliculasPorGenero}) => {
+export const peliculaIdContext = createContext()
+
+export const ListaPeliculas = ({ peliculasPorGenero }) => {
+
+    const [peliculaId, setPeliculaId] = useState("")
+
+
+    const handleId = async (pelicula) => {
+        setPeliculaId(pelicula.id)
+        console.log(peliculaId)
+    }
+
+
     return (
         <>
             <div className='peliculas-container container '>
@@ -17,7 +31,7 @@ export const ListaPeliculas = ({peliculasPorGenero}) => {
                                 <h3 >{pelicula.title} </h3>
                             </div>
 
-                            <button className='btn btn-primary'> Ver más </button>
+                            <Link to={`/peliculaDetalles/${pelicula.id}`} className='btn btn-primary' onClick={() => handleId(pelicula)} > Ver más </Link>
                         </div>
 
                     </div>
@@ -25,6 +39,12 @@ export const ListaPeliculas = ({peliculasPorGenero}) => {
                 }
 
             </div>
+
+            <peliculaIdContext.Provider value={peliculaId}>
+                {peliculaId && <PeliculaDetalles />}
+            </peliculaIdContext.Provider> 
+            
+
         </>
-    )
+                )
 }

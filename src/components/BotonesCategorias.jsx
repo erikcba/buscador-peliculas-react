@@ -15,6 +15,7 @@ export const BotonesCategorias = ({ generos }) => {
 
     const [peliculasPorGenero, setPeliculasPorGenero] = useState([]);
     const [generoElegido, setGeneroElegido] = useState(null)
+    
 
     const [pagina, setPagina] = useState(1)
 
@@ -52,6 +53,9 @@ export const BotonesCategorias = ({ generos }) => {
 
     useEffect(() => {
         console.log(pagina)
+        if(generoElegido){
+            fetchData()
+        }
 
     }, [generoElegido, pagina])
 

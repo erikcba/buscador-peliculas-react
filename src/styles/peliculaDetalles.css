@@ -36,7 +36,36 @@
 }
 
 .encabezado_pelicula-imagen {
-    width: 300px;
-    height: 450px;
+    max-width: 300px;
+    max-height: 450px;
     border-radius: 8px;
+}
+
+.descripcion-pelicula {
+    padding: 20px;
+}
+
+.oculto {
+    display: none;
+}
+
+@media screen and (max-width: 699px) { 
+
+    .encabezado_pelicula-detalles {
+        height: 35vh;
+    }
+
+   .encabezado_pelicula-imagen {
+    width: 33%;
+    height: auto;
+   }
+
+   .encabezado_pelicula-texto .descripcion-pelicula {
+    display: none;
+   }
+
+   .oculto {
+    display: block;
+    color: #fefefe;
+   }
 }

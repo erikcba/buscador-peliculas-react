@@ -49,12 +49,16 @@ export const PeliculaDetalles = () => {
                         <img className='encabezado_pelicula-imagen' src={`https://image.tmdb.org/t/p/w500${dataPelicula.poster_path}`} alt="" />
                         <div className='encabezado_pelicula-texto '>
                             <h1> {dataPelicula.title} <p className='fecha-pelicula'>{dataPelicula.release_date}</p>  </h1>
-                            <p>{dataPelicula.overview} </p>
+                            <p className='descripcion-pelicula'>{dataPelicula.overview} </p>
                         </div>
 
                     </div>
 
                 </div>
+            </div>
+
+            <div>
+                <p className='descripcion-pelicula oculto'>{dataPelicula.overview} </p>
             </div>
 
         </>

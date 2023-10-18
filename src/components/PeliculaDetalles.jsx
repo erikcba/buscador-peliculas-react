@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import '../styles/peliculaDetalles.css'
 
 export const PeliculaDetalles = () => {
 
@@ -17,11 +18,10 @@ export const PeliculaDetalles = () => {
 
 
     useEffect(() => {
-        console.log("peliculaDatos en useEffect:", id );
+        console.log("peliculaDatos en useEffect:", id);
 
         const fetchPeliculaDetalles = async () => {
             try {
-
                 const res = await fetch(`https://api.themoviedb.org/3/movie/${id}?language=es-ES`, options);
                 const data = await res.json();
                 setDataPelicula(data);
@@ -30,24 +30,33 @@ export const PeliculaDetalles = () => {
             }
         }
 
-        if (id ) {      
+        if (id) {
             fetchPeliculaDetalles();
-            
+            console.log(dataPelicula)
         }
 
-    }, [id ])
+    }, [id])
 
 
     return (
         <>
-            <div className='container'>
+            <div className=' pelicula-detalles'>
 
-                <h1> {dataPelicula.title} </h1>
-                <div>
-                    <img src={`https://image.tmdb.org/t/p/w500${dataPelicula.poster_path}`} alt="" />
+                <div className='encabezado_pelicula-detalles'
+                    style={{ backgroundImage: `url(${`https://image.tmdb.org/t/p/w1280${dataPelicula.backdrop_path}`})` }}>
+
+                    <div className='encabezado_pelicula-titulo '>
+                        <img className='encabezado_pelicula-imagen' src={`https://image.tmdb.org/t/p/w500${dataPelicula.poster_path}`} alt="" />
+                        <div className='encabezado_pelicula-texto '>
+                            <h1> {dataPelicula.title} <p className='fecha-pelicula'>{dataPelicula.release_date}</p>  </h1>
+                            <p>{dataPelicula.overview} </p>
+                        </div>
+
+                    </div>
+
                 </div>
-
             </div>
+
         </>
     )
 }

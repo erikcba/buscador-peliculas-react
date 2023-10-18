@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import '../index.css'
 import React, { useState } from 'react'
 
@@ -36,8 +37,6 @@ export const Home = () => {
   }
 
 
-
-
   return (
     <>
       <div className='banner'>
@@ -71,7 +70,7 @@ export const Home = () => {
                 <h3 >{pelicula.title} </h3>
               </div>
 
-              <button className='btn btn-primary'> Ver más </button>
+              <Link to={`/peliculaDetalles/${pelicula.id}`} className='btn btn-primary'  > Ver más </Link>
             </div>
           </div>
         ))}

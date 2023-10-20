@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import '../styles/peliculaDetalles.css'
+import { Trailer } from './Trailer';
 
 export const PeliculaDetalles = () => {
 
@@ -59,6 +60,12 @@ export const PeliculaDetalles = () => {
 
             <div>
                 <p className='descripcion-pelicula oculto'>{dataPelicula.overview} </p>
+            </div>
+
+            <Trailer id={id} ></Trailer>
+
+            <div>
+                <h1>Similares</h1>
             </div>
 
         </>

@@ -41,12 +41,37 @@
     border-radius: 8px;
 }
 
-.descripcion-pelicula {
-    padding: 20px;
-}
-
 .oculto {
     display: none;
+}
+
+.trailer-contenedor {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.trailer-contenedor iframe {
+    border-radius: 8px;
+}
+
+.trailer-no-disponible {
+    text-align: center;
+    color: #fefefe;
+}
+
+.trailer-no-disponible img {
+    border-radius: 8px;
+    width: 800px;
+    height: 500px;
+}
+
+.trailer-video {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 @media screen and (max-width: 699px) { 
@@ -68,4 +93,9 @@
     display: block;
     color: #fefefe;
    }
+
+   .trailer-contenedor iframe {
+    width: 100%;
+    height: auto;
+}
 }

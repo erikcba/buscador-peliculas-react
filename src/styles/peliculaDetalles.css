@@ -41,6 +41,21 @@
     border-radius: 8px;
 }
 
+.valoracion {
+    background-color: rgba(11, 11, 11, 0.326);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: initial;
+    width: fit-content;
+    height: fit-content;
+    padding: 10px;
+}
+
+.puntuacion {
+    margin: 0;
+}
+
 .oculto {
     display: none;
 }

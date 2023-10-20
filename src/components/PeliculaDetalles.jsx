@@ -33,10 +33,12 @@ export const PeliculaDetalles = () => {
 
         if (id) {
             fetchPeliculaDetalles();
-            console.log(dataPelicula)
+            console.log(dataPelicula.genres)
         }
 
     }, [id])
+
+
 
 
     return (
@@ -49,8 +51,17 @@ export const PeliculaDetalles = () => {
                     <div className='encabezado_pelicula-titulo '>
                         <img className='encabezado_pelicula-imagen' src={`https://image.tmdb.org/t/p/w500${dataPelicula.poster_path}`} alt="" />
                         <div className='encabezado_pelicula-texto '>
-                            <h1> {dataPelicula.title} <p className='fecha-pelicula'>{dataPelicula.release_date}</p>  </h1>
+                            <h1> {dataPelicula.title} <p className='fecha-pelicula'>{dataPelicula.release_date}</p></h1>
                             <p className='descripcion-pelicula'>{dataPelicula.overview} </p>
+                            <div className='valoracion'>
+                                {
+                                    dataPelicula.vote_average && (
+                                        <p className='puntuacion'>Valoracion del público:  {dataPelicula.vote_average.toFixed(1)} <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAkJJREFUSEuNVUty4jAQ7SbLwVWTVXBWpmJyDnOSgZvASZib4HvYFbwaO7tU2bMaoKcktawWkgleUKat7tef108I4kEAIP0TWNmAgED+58hRGQKDeNLh4fcpYGVXTyRrl6n72NXJEQGal7zfRpz8dNjNAIwNuOmOQG/rZIMAB2UionW6Gsp4gSIy2QoCgLBxKnsAKPhoucj7dXx+vq9XwVRGbfWjQMSjqc+4EME6XfWRKh4EcMcQunp+BITCpw+VaT6sJ1nHlBQVhMgq3/b0nM0u55NlrjjVENE2fR/KCLcdrS3324/nDK7/fs0AMyLI2J6BfZdzcigNmxvOVP+/PD3tX5dfjWqn2QME6CoeYjBf7ru3PWYZ3WKSCiU72Czyfqk3wPpJGvrDZuepjdR2CaA2Hbdp3v+2KzbG0yAIhzE7wxeT3YMABDAG1y263eT29DPDy0VxPruvFH5bVKBrZAHDPUCA9sMHcb2WkP5s9HZrRoWKEU30TzUvZnq5vnlQNZF26duwNydjiyblg+PJedyFMEMuF/nA0nGjRRH26XhOe5w83AEytIz0MrwPGLGrE+5mwHHGeWQGYtHG4aghV/MNAmpp9saKtNNdJtxJ4dNkRjsH//LxKrDt+qwTFXwjCGF0h++AGJURoHzREn4zZKma9rrp6uRk90Bl9vo27G/YBwqErmelXTuuvlms+mWcpv7g4bNKDgRQ0FWp5d/SCY9smHEy1ZwPCMhXKZ8J5Tp09lgxJRVT1BJJR48ErbsLMP3xP296LjEf2InJAAAAAElFTkSuQmCC" /></p>
+                                    )
+                                }
+
+                            </div>
+
                         </div>
 
                     </div>

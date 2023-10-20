@@ -72,6 +72,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
+    height: 100%;
 }
 
 @media screen and (max-width: 699px) { 
@@ -85,6 +87,10 @@
     height: auto;
    }
 
+   .descripcion-pelicula {
+    margin: 20px;
+   }
+
    .encabezado_pelicula-texto .descripcion-pelicula {
     display: none;
    }
@@ -95,7 +101,6 @@
    }
 
    .trailer-contenedor iframe {
-    width: 100%;
-    height: auto;
+    width: 90%;
 }
 }

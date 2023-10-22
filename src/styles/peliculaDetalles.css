@@ -32,7 +32,7 @@
     justify-content: center;
     align-items: initial;
     width: 50%;
-    
+
 }
 
 .encabezado_pelicula-imagen {
@@ -110,40 +110,63 @@
     height: 100%;
 }
 
-@media screen and (max-width: 699px) { 
+.similar-contenedor {
+    background-color: grey;
+}
+
+.peliculas-relacionadas {
+    display: flex;
+    margin-bottom: 50px;
+}
+
+.swiper {
+    width: 80%;
+    height: 520px;
+}
+
+.movie-card-img img {
+    width: 100%;
+}
+
+@media screen and (max-width: 699px) {
 
     .encabezado_pelicula-detalles {
         height: 35vh;
         background-size: auto;
     }
 
-   .encabezado_pelicula-imagen {
-    width: 33%;
-    height: auto;
-   }
+    .encabezado_pelicula-imagen {
+        width: 33%;
+        height: auto;
+    }
 
-   .encabezado_generos {
-    gap: 5px;
-   }
+    .encabezado_generos {
+        gap: 5px;
+    }
 
-   .genero {
-    width: fit-content;
-   }
+    .genero {
+        width: fit-content;
+    }
 
-   .descripcion-pelicula {
-    margin: 20px;
-   }
+    .descripcion-pelicula {
+        margin: 20px;
+    }
 
-   .encabezado_pelicula-texto .descripcion-pelicula {
-    display: none;
-   }
+    .encabezado_pelicula-texto .descripcion-pelicula {
+        display: none;
+    }
 
-   .oculto {
-    display: block;
-    color: #fefefe;
-   }
+    .oculto {
+        display: block;
+        color: #fefefe;
+    }
 
-   .trailer-contenedor iframe {
-    width: 90%;
-}
+    .trailer-contenedor iframe {
+        width: 90%;
+    }
+
+    .trailer-no-disponible img {
+        width: 300px;
+        height: 200px;
+    }
 }

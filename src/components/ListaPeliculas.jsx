@@ -19,32 +19,41 @@ export const ListaPeliculas = ({ peliculasPorGenero }) => {
         <>
             <div className='peliculas-container container '>
 
-                {peliculasPorGenero.map((pelicula) => (
-                    <div key={pelicula.id} className='movie-card'>
+                {peliculasPorGenero ? (
+                    peliculasPorGenero.map((pelicula) => (
+                        <div key={pelicula.id} className='movie-card'>
 
-                        <div className='movie-card-img'>
-                            <img src={`https://image.tmdb.org/t/p/w500${pelicula.poster_path}`} alt="" />
-                        </div>
-
-                        <div className='movie-card-info'>
-                            <div className='titulo-pelicula'>
-                                <h3 >{pelicula.title} </h3>
+                            <div className='movie-card-img'>
+                                <img src={`https://image.tmdb.org/t/p/w500${pelicula.poster_path}`} alt="" />
                             </div>
 
-                            <Link to={`/peliculaDetalles/${pelicula.id}`} className='btn btn-primary' onClick={() => handleId(pelicula)} > Ver más </Link>
+                            <div className='movie-card-info'>
+                                <div className='titulo-pelicula'>
+                                    <h3 >{pelicula.title} </h3>
+                                </div>
+
+                                <Link to={`/peliculaDetalles/${pelicula.id}`} className='btn btn-primary' onClick={() => handleId(pelicula)} > Ver más </Link>
+                            </div>
+
                         </div>
 
-                    </div>
-                ))
+                    ))
+                )
+                    :
+                    (
+                        <div className="spinner-border" role="status">
+                            <span className="visually-hidden">Loading...</span>
+                        </div>
+                    )
                 }
 
             </div>
 
             <peliculaIdContext.Provider value={peliculaId}>
                 {peliculaId && <PeliculaDetalles />}
-            </peliculaIdContext.Provider> 
-            
+            </peliculaIdContext.Provider>
+
 
         </>
-                )
+    )
 }

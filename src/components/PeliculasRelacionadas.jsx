@@ -7,10 +7,10 @@ export const PeliculasRelacionadas = ({ options, id }) => {
     const swiper = new Swiper('.swiper', {
         // Optional parameters
         direction: 'horizontal',
-        loop: true,
+        loop: false,
         slidesPerView: 3,
         spaceBetween: 25,
-    
+
 
         // If we need pagination
         pagination: {
@@ -89,7 +89,9 @@ export const PeliculasRelacionadas = ({ options, id }) => {
                             ))
                         )
                             :
-                            <p>cargando...</p>
+                            <div className="spinner-border" role="status">
+                                <span className="visually-hidden">Loading...</span>
+                            </div>
                     }
                 </div>
                 <div className="swiper-button-prev"></div>
